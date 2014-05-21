@@ -11,4 +11,7 @@
     - { src: '{{ app_conf_url }}', dest: '{{ app_destination }}' }
 
 - name: Configure launch script
-  template: src=launch.sh.j2 dest=/opt/launch.sh mode=0744    
+  template: src=launch.sh.j2 dest=/opt/launch.sh mode=0744
+
+- name: Add docker image tag to environment file
+  lineinfile: dest=/etc/environment line='IMAGE_VERSION="{{ version }}"'  
