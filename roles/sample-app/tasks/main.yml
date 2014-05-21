@@ -2,7 +2,7 @@
 # file: roles/sample-app/tasks/main.yml
 
 - name: Create application directory
-  file: path='{{ app_destination }}' state=directory mode=0744
+  file: path={{ app_destination }} state=directory mode=0744
   
 - name: Download application artifacts
   get_url: url={{ item.src }} dest={{ item.dest }} mode=0744
@@ -11,4 +11,4 @@
     - { src: '{{ app_conf_url }}', dest: '{{ app_destination }}' }
 
 - name: Configure launch script
-  template: src=launch.sh.j2 dest=/opt    
+  template: src=launch.sh.j2 dest=/opt/launch.sh    
