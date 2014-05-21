@@ -2,9 +2,9 @@
     "variables": {
         "version": "",
         "jdk7-base-image-version": "",
-        "app_destination":"",
-        "app_binary_url":"",
-        "app_conf_url":""    
+        "app_destination": "",
+        "app_binary_url": "",
+        "app_conf_url": ""    
     },
     "builders":[{
         "type": "docker",
