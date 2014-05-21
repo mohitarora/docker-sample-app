@@ -20,7 +20,7 @@
                 "roles/sample-app"
             ],
             "extra_arguments":[
-                '--extra-vars "app_destination={{user `app_destination`}} app_binary_url={{user `app_binary_url`}} app_conf_url={{user `app_conf_url`}}"'
+                "--extra-vars 'app_destination={{user `app_destination`}} app_binary_url={{user `app_binary_url`}} app_conf_url={{user `app_conf_url`}}'"
             ]
         }
     ],
