@@ -11,4 +11,4 @@
     - { src: '{{ app_conf_url }}', dest: '{{ app_destination }}' }
 
 - name: Configure launch script
-  template: src=launch.sh.j2 dest=/opt/launch.sh    
+  template: src=launch.sh.j2 dest=/opt/launch.sh mode=0744    
