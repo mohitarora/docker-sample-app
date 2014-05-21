@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -eo pipefail
+
+echo "[sample-app] Starting Application"
+java -jar {{ app_destination }}/{{ app_binary_url | basename }} server {{ app_destination }}/{{ app_conf_url | basename }}
