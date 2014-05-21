@@ -1,0 +1,28 @@
+{
+    "variables": {
+        "version": "",
+        "jdk7-base-image-version": ""
+    },
+    "builders":[{
+        "type": "docker",
+        "image": "mohitarora/jdk7-base:{{user `jdk7-base-image-version`}}",
+        "pull": true,
+        "export_path": "sample-app-{{user `version`}}.tar"
+    }],
+    "provisioners":[
+        {
+            "type": "ansible-local",
+            "playbook_file": "playbooks/local.yml",
+            "role_paths":[
+                "roles/sample-app"
+            ]
+        }
+    ],
+    "post-processors": [
+        {
+            "type": "docker-import",
+            "repository": "mohitarora/sample-app",
+            "tag": "{{user `version`}}"
+        }
+    ]
+}

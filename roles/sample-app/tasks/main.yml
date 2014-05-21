@@ -1,0 +1,13 @@
+---
+# file: roles/sample-app/tasks/main.yml
+
+- name: Create application directory
+  file: path={{item}} state=directory mode=0744
+  with_items:
+    - /app
+
+- name: Download application artifacts
+  get_url: url={{ item.src }} dest={{ item.dest }} mode=0744
+  with_items:
+    - { src: 'https://github.com/mohitarora/coreos-vagrant/raw/master/application/dropwizard-sample-1.0-SNAPSHOT.jar', dest: '/app/dropwizard-sample-1.0-SNAPSHOT.jar' }
+    - { src: 'https://raw.githubusercontent.com/mohitarora/coreos-vagrant/master/application/sample.yml', dest: '/app/sample.yml' }
